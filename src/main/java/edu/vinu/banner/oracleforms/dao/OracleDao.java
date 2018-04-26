@@ -14,10 +14,11 @@ public class OracleDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	public Record get(long id) {
-		Record proj = jdbcTemplate.queryForObject("select * from table where id = ?",
-				new Object[] {id},
-				new BeanPropertyRowMapper<Record>(Record.class));
-		return proj;
+//		Record record = jdbcTemplate.queryForObject("select * from table where id = ?",
+//				new Object[] {id},
+//				new BeanPropertyRowMapper<Record>(Record.class));
+		Record record = new Record(String.valueOf(id), "Field 1 for " + id, "Field 2 for " + id);
+		return record;
 	}
 	
 	public List<Record> getAll(String sortOption) {
@@ -39,9 +40,10 @@ public class OracleDao {
 	}
 	
 	public int update(Record record) {
-		return jdbcTemplate.update("update table set field1 = ?, field2 = ? where id = ?",
-				record.getField1(),
-				record.getField2());
+//		return jdbcTemplate.update("update table set field1 = ?, field2 = ? where id = ?",
+//				record.getField1(),
+//				record.getField2());
+		return 1;
 	}
 	
 	public int delete(long id) {

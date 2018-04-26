@@ -24,9 +24,12 @@
 
 <body>
 	<div class="container">
+		<c:if test="${message != null}">
+		<div class="alert alert-success">${message}</div>
+		</c:if>
 		<div id="header" class="row align-items-center">
 			<div class="col"><p>Record List</p></div>
-			<div class="col text-right align-bottom"><input class="btn btn-default" type="button" value="Add New Record" /></div>
+			<div class="col text-right align-bottom"><input class="btn btn-primary" type="button" value="Add New Record" /></div>
 		</div>
 		<table class="table table-striped table-bordered">
 			<tr>
@@ -38,8 +41,8 @@
 			<c:forEach items="${recordList}" var="record">
 			<tr>
 				<td>
-					<input class="btn btn-default" type="button" value="Edit" onclick="edit(${record.id});" />
-					<input class="btn btn-default" type="button" value="Delete" />
+					<input class="btn btn-primary" type="button" value="Edit" onclick="edit(${record.id});" />
+					<input class="btn btn-primary" type="button" value="Delete" />
 				</td>
 				<td>${record.id}</td>
 				<td>${record.field1}</td>
